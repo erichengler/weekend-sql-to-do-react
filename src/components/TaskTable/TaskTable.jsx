@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function TaskTable () {
     let [taskName, setTaskName] = useState('');
-    let [taskCompleted, setTaskCompleted] = useState('');
+    let [taskCompleted, setTaskCompleted] = useState('No');
     let [taskArray, setTaskArray] = useState([]);
 
     const fetchTaskList = () => {
@@ -44,9 +44,6 @@ function TaskTable () {
                 <label htmlFor="task-input">Task:</label>
                 <input id="task-input" onChange={e => setTaskName(e.target.value)} />
                 <br />
-                <label htmlFor="task-input">Completed:</label>
-                <input id="completed-input" onChange={e => setTaskCompleted(e.target.value)} />
-                <br />
                 <button id="createTaskButton">Create</button>
             </form>
             <br />
@@ -64,7 +61,7 @@ function TaskTable () {
                 <tbody key={task.id}>
                     <tr>
                         <td>{task.task}</td>
-                         <td>{task.completed}</td>
+                         <td><button className="completeButton">{task.completed}</button></td>
                          <td><button className="deleteButton">Delete</button></td>
                      </tr>
                 </tbody>
