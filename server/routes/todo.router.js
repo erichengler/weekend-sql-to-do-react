@@ -33,15 +33,24 @@ router.post('/', (req, res) => {
 // PUT
 router.put('/:id', (req, res) => {
     console.log( `In PUT request /todo` );
+    console.log( req )
     let taskId = req.params.id;
-    let queryText = 'UPDATE "todo" SET "completed" = $1 WHERE "id" = $2';
-    pool.query(queryText, [ 'Yes', taskId ]).then((result) => {
+    let queryText = 'UPDATE "todo" SET "completed" = $1 WHERE "completed" = $2 AND "id" = $3;';
+    
+    // Changing task completed from No to Yes
+    pool.query(queryText, [ 'Yes', 'No', taskId ]).then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
         console.log( `Error in PUT ${error}` );
         res.sendStatus(500);
-    })
-})
+    });
+
+    // Tried a few different ways to make a 2nd pool.query or a 2nd router.put 
+    // to be able to change completed back to a No from Yes but was unsuccessful
+}) 
+    
+
+
 
 // DELETE
 router.delete('/:id', (req, res) => {

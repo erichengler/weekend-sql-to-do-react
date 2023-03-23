@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 function TaskItem ({ task, fetchTaskList }) {
     
     const removeTask = (event) => {
@@ -22,10 +21,18 @@ function TaskItem ({ task, fetchTaskList }) {
         })
     }
 
+    const getColor = () => {
+        if( task.completed === 'Yes' ) {
+            return 'lime';
+        } else {
+            return 'silver';
+        }
+    }
+
     return (
         <>
         <tbody key={task.id}>
-            <tr>
+            <tr style={{ backgroundColor: getColor() }}>
                 <td>{task.task}</td>
                 <td><button onClick={ (event) => completeTask(event) }>{task.completed}</button></td>
                 <td><button onClick={ (event) => removeTask(event) }>Delete</button></td>
