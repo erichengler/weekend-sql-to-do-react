@@ -1,12 +1,19 @@
+body {
+  background-image: linear-gradient(#486f96, #aac1c7 );
+  background-attachment: fixed;
+  font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
 .App {
     text-align: center;
   }
   
   .App-header {
-    background-color: #222;
+    background-color: #aac1c7;;
     height: 70px;
     padding: 20px;
-    color: white;
+    color: black;
+    letter-spacing: 2px;
   }
   
   .App-title {
@@ -20,4 +27,35 @@
   @keyframes App-logo-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+  }
+
+
+  .taskTable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .taskTable td, .tasktable th {
+    border: 1px solid #486f96;
+    padding: 12px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .taskTable tr {
+    background-color: #aac1c7;}
+
+  .taskTable tr:hover {
+    background-color: rgb(149, 172, 180);
+  }
+
+  .taskTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-align: center;
+    background-color: #486f96;
+    color: white;
   }

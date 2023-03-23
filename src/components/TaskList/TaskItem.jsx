@@ -23,9 +23,9 @@ function TaskItem ({ task, fetchTaskList }) {
 
     const getColor = () => {
         if( task.completed === 'Yes' ) {
-            return 'lime';
+            return 'DarkSeaGreen';
         } else {
-            return 'silver';
+            return;
         }
     }
 
