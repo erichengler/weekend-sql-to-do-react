@@ -9,9 +9,9 @@ This project allows the user to input a task and use the create button to save i
 ![plot](./public/images/preview.png)
 
 ## Prerequisites
--Node.js
--React
--PostgreSQL
+1. Node.js
+2. React
+3. PostgreSQL
 
 ## Installation
 1. Create a database using PostgreSQL named `weekend-to-do-app`
