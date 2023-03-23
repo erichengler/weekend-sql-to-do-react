@@ -42,7 +42,7 @@ function TaskList () {
                 <thead>
                     <tr>
                         <th>Task</th>
-                        <th>Completed</th>
+                        <th>Complete</th>
                         <th>Delete</th>
                     </tr>
                 </thead>

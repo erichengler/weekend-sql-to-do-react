@@ -5,7 +5,7 @@ const pool = require('../modules/pool.js');
 // GET
 router.get('/', (req, res) => {
     console.log( 'GET request made for /todo' );
-    let queryText = 'SELECT * FROM todo;';
+    let queryText = 'SELECT * FROM todo ORDER BY task;';
 
     pool.query(queryText).then((result) => {
         res.send(result.rows);
@@ -31,6 +31,17 @@ router.post('/', (req, res) => {
 })
 
 // PUT
+router.put('/:id', (req, res) => {
+    console.log( `In PUT request /todo` );
+    let taskId = req.params.id;
+    let queryText = 'UPDATE "todo" SET "completed" = $1 WHERE "id" = $2';
+    pool.query(queryText, [ 'Yes', taskId ]).then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log( `Error in PUT ${error}` );
+        res.sendStatus(500);
+    })
+})
 
 // DELETE
 router.delete('/:id', (req, res) => {
