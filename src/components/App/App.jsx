@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
-import TaskTable from '../TaskTable/TaskTable.jsx'
+import TaskList from '../TaskList/TaskList.jsx'
+import TaskForm from '../TaskList/TaskForm.jsx';
 
 function App () {
   
   return (
     <div>
       <h1>TO DO APP</h1>
-      <br />
-      <TaskTable />
+        <br />
+        <br />
+      <TaskList
+
+      />
     </div>
   );
 

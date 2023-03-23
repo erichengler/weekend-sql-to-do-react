@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import TaskForm from './TaskForm.jsx'
 
-function TaskTable () {
+function TaskList () {
+    let [taskArray, setTaskArray] = useState([]);
     let [taskName, setTaskName] = useState('');
     let [taskCompleted, setTaskCompleted] = useState('No');
-    let [taskArray, setTaskArray] = useState([]);
 
     const fetchTaskList = () => {
         axios.get('/todo').then((response) => {
@@ -21,33 +22,21 @@ function TaskTable () {
         fetchTaskList();
     }, []);
 
-    const addTask = (event) => {
-        event.preventDefault();
-
-        axios.post('/todo', {
-            task: taskName,
-            completed: taskCompleted
-        }).then((response) => {
-            setTaskName('');
-            setTaskCompleted('');
-            fetchTaskList();
-        }).catch((error) => {
-            console.log(`Error in POST ${error}`);
-            alert(`Something went wrong.`);
-        })
-    }
-
     return (
-        <div className="taskTable">
-            <form onSubmit={addTask}>
-                <h2>Create a Task</h2>
-                <label htmlFor="task-input">Task:</label>
-                <input id="task-input" onChange={e => setTaskName(e.target.value)} />
+        <>
+        <div>
+            <TaskForm 
+                taskName={taskName}
+                setTaskName={setTaskName}
+                taskCompleted={taskCompleted}
+                setTaskCompleted={setTaskCompleted}
+                fetchTaskList={fetchTaskList}
+            />
                 <br />
-                <button id="createTaskButton">Create</button>
-            </form>
-            <br />
-            <br />
+                <br />
+        </div>
+
+        <div className="taskTable">
             <table>
                 <thead>
                     <tr>
@@ -61,15 +50,16 @@ function TaskTable () {
                 <tbody key={task.id}>
                     <tr>
                         <td>{task.task}</td>
-                         <td><button className="completeButton">{task.completed}</button></td>
-                         <td><button className="deleteButton">Delete</button></td>
+                        <td><button className="completeButton">{task.completed}</button></td>
+                        <td><button className="deleteButton">Delete</button></td>
                      </tr>
                 </tbody>
                 ))
             }
             </table>
         </div>
+        </>
     )
 }
 
-export default TaskTable;
+export default TaskList;
