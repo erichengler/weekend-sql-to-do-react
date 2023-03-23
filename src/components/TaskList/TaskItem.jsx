@@ -2,6 +2,8 @@ import axios from 'axios';
 
 function TaskItem ({ task, fetchTaskList }) {
     
+    // DELETE request to delete a task from the database 
+    // and then fetch the task list
     const removeTask = (event) => {
         console.log( `removeTask ${task.id}` );
         axios.delete(`/todo/${task.id}`).then((response) => {
@@ -12,6 +14,8 @@ function TaskItem ({ task, fetchTaskList }) {
         })
     }
 
+    // PUT request to update a task completed from 'No' to 'Yes' 
+    // and then fetch the task list
     const completeTask = (event) => {
         axios.put( `/todo/${task.id}` ).then((response) => {
             fetchTaskList();
@@ -21,6 +25,7 @@ function TaskItem ({ task, fetchTaskList }) {
         })
     }
 
+    // Changes background color of completed tasks to DarkSeaGreen
     const getColor = () => {
         if( task.completed === 'Yes' ) {
             return 'DarkSeaGreen';
@@ -31,6 +36,7 @@ function TaskItem ({ task, fetchTaskList }) {
 
     return (
         <>
+        {/* Task Table Data and Buttons  */}
         <tbody key={task.id}>
             <tr style={{ backgroundColor: getColor() }}>
                 <td>{task.task}</td>

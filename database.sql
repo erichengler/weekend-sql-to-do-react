@@ -6,4 +6,5 @@ CREATE TABLE "todo" (
 
 INSERT INTO "todo" ("task")
 VALUES ('Shovel the driveway'),
-('Clean the house');
+('Clean the house'),
+('Feed the cat');

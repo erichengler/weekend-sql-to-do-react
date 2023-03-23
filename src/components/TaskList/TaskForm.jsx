@@ -7,6 +7,7 @@ function TaskForm ( { taskName, setTaskName, taskCompleted, setTaskCompleted, fe
     const addTask = (event) => {
         event.preventDefault();
 
+        // POST request to create a task
         axios.post('/todo', {
             task: taskName,
             completed: taskCompleted
@@ -22,6 +23,7 @@ function TaskForm ( { taskName, setTaskName, taskCompleted, setTaskCompleted, fe
 
     return (
         <>
+        {/* Create a Task Form */}
             <form onSubmit={addTask}>
                 <h2>Create a Task</h2>
                 <label htmlFor="task-input">Task: </label>

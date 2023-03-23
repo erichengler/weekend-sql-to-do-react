@@ -9,6 +9,7 @@ function TaskList () {
     let [taskName, setTaskName] = useState('');
     let [taskCompleted, setTaskCompleted] = useState('No');
 
+    // Getting the task list from the database
     const fetchTaskList = () => {
         axios.get('/todo').then((response) => {
             // WHY IS taskArray still empty after this line?
@@ -19,6 +20,7 @@ function TaskList () {
             alert(`Something went wrong.`);
         })
     }
+    // End of GET request
 
     useEffect(() => {
         fetchTaskList();
@@ -26,6 +28,7 @@ function TaskList () {
 
     return (
         <>
+        {/* Create a Task Form */}
         <div>
             <TaskForm 
                 taskName={taskName}
@@ -37,7 +40,9 @@ function TaskList () {
                 <br />
                 <br />
         </div>
+        {/* End of Create a Task Form */}
 
+        {/* Task Table Display */}
         <div className="taskTable">
             <table>
                 <thead>
@@ -54,10 +59,10 @@ function TaskList () {
                     task={task}
                     fetchTaskList={fetchTaskList}
                 />
-                ))
-            }
+                ))}
             </table>
         </div>
+        {/* End of Task Table Display */}
         </>
     )
 }

@@ -46,7 +46,7 @@ router.put('/:id', (req, res) => {
     });
 
     // Tried a few different ways to make a 2nd pool.query or a 2nd router.put 
-    // to be able to change completed back to a No from Yes but was unsuccessful
+    // to be able to change completed back to a 'No' (from a 'Yes') but was unsuccessful
 }) 
     
 
