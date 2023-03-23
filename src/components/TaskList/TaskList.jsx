@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import TaskForm from './TaskForm.jsx'
+import TaskItem from './TaskItem.jsx'
 
 function TaskList () {
     let [taskArray, setTaskArray] = useState([]);
@@ -47,13 +48,11 @@ function TaskList () {
                 </thead>
             {
             taskArray.map((task) => (
-                <tbody key={task.id}>
-                    <tr>
-                        <td>{task.task}</td>
-                        <td><button className="completeButton">{task.completed}</button></td>
-                        <td><button className="deleteButton">Delete</button></td>
-                     </tr>
-                </tbody>
+                <TaskItem 
+                    key={task.id}
+                    task={task}
+                    fetchTaskList={fetchTaskList}
+                />
                 ))
             }
             </table>
