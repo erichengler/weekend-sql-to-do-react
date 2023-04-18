@@ -19,3 +19,6 @@ This project allows the user to input a task and use a create button to save it 
 3. Run `npm install` in your terminal
 4. Run `npm run server` in your terminal
 5. Run `npm run client` in a different terminal window
+
+## Acknowledgement
+Thanks to Chris Black and Prime Digital Academy for providing me with the knowledge I needed to make this!
