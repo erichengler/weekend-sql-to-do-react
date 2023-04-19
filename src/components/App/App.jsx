@@ -7,7 +7,7 @@ function App () {
   return (
     <>
     <div className="App">
-      <h1 className="App-header">TO - DO - APP</h1>
+      <h1 className="App-header">To - Do - List</h1>
       <TaskList />
     </div>
 

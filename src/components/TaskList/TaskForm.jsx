@@ -6,14 +6,14 @@ function TaskForm ( { taskName, setTaskName, taskCompleted, setTaskCompleted, fe
 
     const addTask = (event) => {
         event.preventDefault();
-
+        document.getElementById("taskForm").reset();
         // POST request to create a task
         axios.post('/todo', {
             task: taskName,
             completed: taskCompleted
         }).then((response) => {
             setTaskName('');
-            setTaskCompleted('');
+            setTaskCompleted('No');
             fetchTaskList();
         }).catch((error) => {
             console.log(`Error in POST ${error}`);
@@ -24,13 +24,13 @@ function TaskForm ( { taskName, setTaskName, taskCompleted, setTaskCompleted, fe
     return (
         <>
         {/* Create a Task Form */}
-            <form onSubmit={addTask}>
+            <form id="taskForm" onSubmit={addTask}>
                 <h2>Create a Task</h2>
                 <label htmlFor="task-input">Task: </label>
                 <input id="task-input" onChange={e => setTaskName(e.target.value)} />
                 <br />
                 <br />
-                <button id="createTaskButton">Create</button>
+                <button type="submit" id="createTaskButton">Create</button>
             </form>
         </>
     )

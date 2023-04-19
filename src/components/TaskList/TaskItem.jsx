@@ -28,9 +28,9 @@ function TaskItem ({ task, fetchTaskList }) {
     // Changes background color of completed tasks to DarkSeaGreen
     const getColor = () => {
         if( task.completed === 'Yes' ) {
-            return 'DarkSeaGreen';
+            return '#5fb026';
         } else {
-            return;
+            return '#BFBFBF';
         }
     }
 
