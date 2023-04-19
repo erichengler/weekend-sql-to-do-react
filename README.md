@@ -7,6 +7,7 @@ Duration: A few days over a 2 week period
 This project contains a To-Do List application that allows the user to create tasks that will be stored in a database and displayed in a table below. The user can mark a task as complete or delete a task from the database/table.
 
 ## Preview
+
 ![plot](./public/images/preview.png)
 
 ## Installation / Setup
